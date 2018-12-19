@@ -1,0 +1,9 @@
+.l-wrapper {
+  padding: 2rem;
+}
+
+.l-block {
+  & + & {
+    margin-top: 1rem;
+  }
+}
