@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+    padding: 0;
+    margin-block-end: 0;
+  }
+
+  &__category-list {
+    display: flex;
+
+    li:not(:first-child) {
+      &::before {
+        content: '|';
+        display: inline-block;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+}

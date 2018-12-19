@@ -1,9 +1,26 @@
 .l-wrapper {
-  padding: 2rem;
+  padding: 1rem;
+  max-width: 900px;
 }
 
 .l-block {
   & + & {
-    margin-top: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+.l-list {
+  li {
+    padding-left: 1rem;
+
+    &::before {
+      content: '–';
+      display: inline-block;
+      margin-left: -1rem;
+      width: 1rem;
+    }
+    & + li {
+      margin-top: 0.5rem;
+    }
   }
 }
