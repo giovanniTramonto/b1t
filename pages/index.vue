@@ -20,7 +20,8 @@
     <section class="l-block">
       <p>I am a Berlin based designer</p>
       <ul class="l-list">
-        <li>Graduated in 2005 with a MA in type design from École Estienne (Paris, France) — Graduated in 2009 with a MA in type design from University of Reading (United Kingdom)</li>
+        <li>Graduated in 2005 with a MA in type design from École Estienne (Paris, France)</li>
+        <li>Graduated in 2009 with a MA in type design from University of Reading (United Kingdom)</li>
         <li>Worked 5 years for Dalton Maag on design</li>
         <li>Worked 3 years for Monotype on design and production</li>
       </ul>
