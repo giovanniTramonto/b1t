@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  background: beige;
+  background: map-get($colors, 'background');
   color: map-get($colors, 'text');
 }
 

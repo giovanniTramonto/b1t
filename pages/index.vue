@@ -12,9 +12,12 @@
     <section class="l-block">
       <p>
         <a href="mailto:hello@ameliebonet.com">hello@ameliebonet.com</a><br>
-        <a href="tel:+4901796135725">+49 (0) 179 613 57 25</a><br>
-        <span>Kadiner Straße 12, 10243 Berlin Germany</span>
+        <a href="tel:+4901796135725">+49 (0) 179 613 57 25</a>
       </p>
+    </section>
+
+    <section class="l-block">
+      <slider :slides="slides" />
     </section>
 
     <section class="l-block">
@@ -36,5 +39,30 @@
 </template>
 
 <script>
-export default {}
+import Slider from '@/components/Slider'
+
+export default {
+  components: {
+    Slider
+  },
+
+  data() {
+    return {
+      slides: [
+        {
+          default: 'images/slides7--w900.jpg',
+          large: 'images/slides7--w1800.jpg'
+        },
+        {
+          default: 'images/slides8--w900.jpg',
+          large: 'images/slides8--w1800.jpg'
+        },
+        {
+          default: 'images/slides9--w900.jpg',
+          large: 'images/slides9--w1800.jpg'
+        }
+      ]
+    }
+  }
+}
 </script>

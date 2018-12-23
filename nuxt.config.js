@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const path = require('path')
 
 module.exports = {
   mode: 'universal',
@@ -59,6 +60,24 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+
+      for (const ruleList of Object.values(config.module.rules || {})) {
+        for (const rule of Object.values(ruleList.oneOf || {})) {
+          for (const loader of rule.use) {
+            const loaderModifier = loaderModifiers[loader.loader]
+            if (loaderModifier) {
+              loaderModifier(loader)
+            }
+          }
+        }
+      }
     }
+  }
+}
+
+const loaderModifiers = {
+  'sass-loader': loader => {
+    loader.options.includePaths = [path.join(__dirname, 'stylesheets')]
+    loader.options.data = '@import "settings";'
   }
 }
