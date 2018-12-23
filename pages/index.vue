@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="l-wrapper">
     <header class="header">
       <h1 class="header__title">amélie bonet</h1>
       <ul class="header__category-list">
