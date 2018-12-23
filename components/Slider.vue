@@ -16,10 +16,10 @@
           :key="index">
           <picture :class="$style.picture">
             <source
-              :srcset="require(`~/static/${slide.large}`)"
+              :srcset="`${path}${slide.large}`"
               media="(min-width: 450px)">
             <img
-              :src="require(`~/static/${slide.default}`)"
+              :src="`${path}${slide.default}`"
               alt="">
           </picture>
         </div>
@@ -45,6 +45,10 @@ export default {
       default() {
         return []
       }
+    },
+    path: {
+      type: String,
+      default: '/'
     }
   },
 
