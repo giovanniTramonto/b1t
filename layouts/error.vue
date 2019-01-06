@@ -1,13 +1,10 @@
 <template>
-  <main class="l-wrapper">
-    <section class="l-block">
-      <h1 v-if="error.statusCode === 404">Page not found …</h1>
-      <h1 v-else>An error occurred …</h1>
-    </section>
-    <section class="l-block">
-      <nuxt-link to="/">Home page</nuxt-link>
-    </section>
-  </main>
+  <section class="l-block">
+    <h1 class="as-h1 as-h1--top">
+      <span v-if="error.statusCode === 404">page not found …</span>
+      <span v-else>an error occurred …</span>
+    </h1>
+  </section>
 </template>
 
 <script>

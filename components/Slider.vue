@@ -2,10 +2,10 @@
   <div :class="$style.slider">
     <span
       :class="[$style.control, $style.controlPrev]"
-      @click="swipe('prev')">&#9664;</span>
+      @click="swipe('prev')" />
     <span
       :class="[$style.control, $style.controlNext]"
-      @click="swipe('next')">&#9654;</span>
+      @click="swipe('next')" />
     <div :class="$style.sliderInner">
       <div
         :class="$style.slides"
@@ -25,7 +25,9 @@
         </div>
       </div>
     </div>
-    <ul :class="$style.iterator">
+    <ul
+      v-if="iterations"
+      :class="$style.iterator">
       <li
         v-for="(slide, index) in slides"
         :key="index"
@@ -54,7 +56,8 @@ export default {
 
   data() {
     return {
-      position: 0
+      position: 0,
+      iterations: false
     }
   },
 
@@ -104,17 +107,10 @@ export default {
 .control {
   position: absolute;
   z-index: 2;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3rem;
-  cursor: pointer;
-  color: map-get($colors, 'link');
+  width: 50%;
+  top: 0;
+  bottom: 0;
   user-select: none;
-
-  &:hover,
-  &:active {
-    color: map-get($colors, 'text');
-  }
 
   :focus,
   :active {
@@ -122,10 +118,12 @@ export default {
   }
 }
 .controlNext {
-  right: -1.8rem;
+  right: 0;
+  cursor: e-resize;
 }
 .controlPrev {
-  left: -2rem;
+  left: 0;
+  cursor: w-resize;
 }
 
 .picture {

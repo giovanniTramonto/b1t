@@ -1,6 +1,6 @@
 .l-wrapper {
   padding: 2rem;
-  max-width: 900px;
+  display: flex;
 }
 
 .l-block {
@@ -24,4 +24,9 @@
       margin-top: 0.5rem;
     }
   }
+}
+
+.l-main {
+  flex-direction: column;
+  max-width: 600px;
 }
