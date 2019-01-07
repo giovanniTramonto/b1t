@@ -115,6 +115,6 @@ module.exports = {
 const loaderModifiers = {
   'sass-loader': loader => {
     loader.options.includePaths = [path.join(__dirname, 'stylesheets')]
-    loader.options.data = '@import "settings";'
+    loader.options.data = '@import "imports";'
   }
 }

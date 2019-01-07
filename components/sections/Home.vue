@@ -1,7 +1,7 @@
 <template>
   <section
     id="home"
-    class="l-section">
+    class="l-section l-section--expose">
     <div class="l-block">
       <slider :slides="slides" />
     </div>

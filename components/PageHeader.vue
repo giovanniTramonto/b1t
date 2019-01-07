@@ -15,14 +15,24 @@
 
 <style lang="scss">
 .header {
-  position: fixed;
-  z-index: map-get($zindex, 'navigation');
-  top: 2rem;
-  left: 2rem;
-
   &__title {
     color: map-get($colors, 'text');
     display: block;
+  }
+}
+
+@include media('<=tablet') {
+  .header {
+    padding: 1rem;
+  }
+}
+
+@include media('>tablet') {
+  .header {
+    top: 2rem;
+    left: 2rem;
+    position: fixed;
+    z-index: map-get($zindex, 'navigation');
   }
 }
 </style>

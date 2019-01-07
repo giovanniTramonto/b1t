@@ -24,6 +24,7 @@
     "eslint-loader": "^2.0.0",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-vue": "^4.7.1",
+    "include-media": "^1.4.9",
     "node-sass": "^4.11.0",
     "nodemon": "^1.11.0",
     "prettier": "1.14.3",

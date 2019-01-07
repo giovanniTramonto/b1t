@@ -1,26 +1,20 @@
-.l-app {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
 .l-main {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .l-section {
-  min-height: 100%;
   display: flex;
   justify-content: center;
-  padding: 8rem 2rem 2rem;
+  padding: 1rem;
+
+  &--expose {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .l-block {
-  width: 60vw;
-  max-width: 900px;
-
   & + & {
     margin-top: 2rem;
   }
@@ -41,5 +35,27 @@
     & + li {
       margin-top: 0.5rem;
     }
+  }
+}
+
+@include media('>tablet') {
+  .l-app {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  .l-main {
+    height: 100%;
+  }
+
+  .l-section {
+    min-height: 100%;
+    padding-top: 8rem 2rem 2rem;
+  }
+
+  .l-block {
+    width: 60vw;
+    max-width: 900px;
   }
 }
