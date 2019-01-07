@@ -1,34 +1,26 @@
 <template>
-  <section class="l-block">
-    <slider :slides="slides" />
-  </section>
+  <main
+    class="l-main l-wrapper"
+    role="main">
+    <home />
+    <info />
+    <references />
+    <talks />
+  </main>
 </template>
 
 <script>
-import Slider from '@/components/Slider'
+import Home from '@/components/sections/Home'
+import Info from '@/components/sections/Info'
+import References from '@/components/sections/References'
+import Talks from '@/components/sections/Talks'
 
 export default {
   components: {
-    Slider
-  },
-
-  data() {
-    return {
-      slides: [
-        {
-          default: 'images/slides7--w900.jpg',
-          large: 'images/slides7--w1800.jpg'
-        },
-        {
-          default: 'images/slides8--w900.jpg',
-          large: 'images/slides8--w1800.jpg'
-        },
-        {
-          default: 'images/slides9--w900.jpg',
-          large: 'images/slides9--w1800.jpg'
-        }
-      ]
-    }
+    Home,
+    Info,
+    References,
+    Talks
   }
 }
 </script>

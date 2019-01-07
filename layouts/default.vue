@@ -1,23 +1,22 @@
 <template>
-  <main class="l-wrapper">
-    <aside class="aside">
+  <div class="l-app">
+    <nav
+      class="navigation"
+      role="navigation">
       <page-header />
-      <navigation />
-    </aside>
-
-    <nuxt
-      class="l-main"
-      role="main" />
-  </main>
+      <page-menu />
+    </nav>
+    <nuxt />
+  </div>
 </template>
 
 <script>
-import Navigation from '@/components/Navigation'
+import PageMenu from '@/components/PageMenu'
 import PageHeader from '@/components/PageHeader'
 
 export default {
   components: {
-    Navigation,
+    PageMenu,
     PageHeader
   }
 }

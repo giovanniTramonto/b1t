@@ -1,13 +1,31 @@
-.l-wrapper {
-  padding: 2rem;
+.l-app {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.l-main {
   display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.l-section {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 8rem 2rem 2rem;
 }
 
 .l-block {
+  width: 60vw;
+  max-width: 900px;
+
   & + & {
     margin-top: 2rem;
   }
 }
+
 
 .l-list {
   li {
@@ -24,9 +42,4 @@
       margin-top: 0.5rem;
     }
   }
-}
-
-.l-main {
-  flex-direction: column;
-  max-width: 600px;
 }

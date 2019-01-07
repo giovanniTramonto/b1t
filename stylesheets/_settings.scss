@@ -1,5 +1,9 @@
 $colors: (
-  'background': #d2cfc1,
+  'background': rgb(252, 252, 252),
   'text': #282828,
-  'link': #3c3cb4
-)
+  'link': #3e3ed3
+);
+
+$zindex: (
+  'navigation': 100
+);
