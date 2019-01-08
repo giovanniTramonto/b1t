@@ -3,17 +3,40 @@
     class="menu">
     <ul>
       <li class="menu__info">
-        <nuxt-link to="#info">Info</nuxt-link>
+        <a
+          href="#info"
+          @click.prevent="scrollTo">
+          Info
+        </a>
       </li>
       <li class="menu__references">
-        <nuxt-link to="#references">References</nuxt-link>
+        <a
+          href="#references"
+          @click.prevent="scrollTo">
+          References
+        </a>
       </li>
       <li class="menu__talks">
-        <nuxt-link to="#talks">Talks</nuxt-link>
+        <a
+          href="#talks"
+          @click.prevent="scrollTo">
+          Talks
+        </a>
       </li>
     </ul>
   </div>
 </template>
+
+<script>
+import scrollTo from '@/utils/scroll-to'
+
+export default {
+  methods: {
+    scrollTo
+  }
+}
+</script>
+
 
 <style lang="scss">
 .menu {

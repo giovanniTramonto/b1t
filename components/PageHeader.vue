@@ -1,10 +1,11 @@
 <template>
   <header class="header">
-    <nuxt-link
-      to="/"
-      class="header__title as-h1 as-h1--top">
+    <a
+      href="/"
+      class="header__title as-h1 as-h1--top"
+      @click.prevent="scrollTo">
       amélie bonet
-    </nuxt-link>
+    </a>
     <p>
       For questions about my work, feel free to contact me.<br>
       My portfolio is available on request. You can also follow me on Instagram.<br>
@@ -12,6 +13,16 @@
     </p>
   </header>
 </template>
+
+<script>
+import scrollTo from '@/utils/scroll-to'
+
+export default {
+  methods: {
+    scrollTo
+  }
+}
+</script>
 
 <style lang="scss">
 .header {

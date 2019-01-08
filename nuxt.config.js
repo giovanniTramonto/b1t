@@ -1,5 +1,4 @@
 const path = require('path')
-const router = require('./config/router')
 
 module.exports = {
   mode: 'universal',
@@ -44,8 +43,6 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: 'icons/favicon.ico' }
     ]
   },
-
-  router,
 
   /*
   ** Customize the progress-bar color
