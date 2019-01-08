@@ -19,7 +19,7 @@
               :srcset="`${path}${slide.large}`"
               media="(min-width: 450px)">
             <img
-              :src="`${path}${slide.default}`"
+              :srcset="`${path}${slide.default}`"
               alt="">
           </picture>
         </div>
