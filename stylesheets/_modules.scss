@@ -1,7 +1,15 @@
-.as-h1 {
+.h1 {
   font-size: 2rem;
 
   &--top {
     margin-top: -0.6rem;
+  }
+}
+
+.h2 {
+  font-size: 1.8rem;
+
+  & + * {
+    margin-top: 0.9rem;
   }
 }

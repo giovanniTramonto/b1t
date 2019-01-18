@@ -40,7 +40,11 @@ module.exports = {
         href: 'icons/safari-pinned-tab.svg',
         color: '#5bbad5'
       },
-      { rel: 'icon', type: 'image/x-icon', href: 'icons/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'icons/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Ubuntu'
+      }
     ]
   },
 

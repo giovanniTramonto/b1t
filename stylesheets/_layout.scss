@@ -1,11 +1,7 @@
 .l-main {
-  display: flex;
-  flex-direction: column;
 }
 
 .l-section {
-  display: flex;
-  justify-content: center;
   padding: 1rem;
 
   &--expose {
@@ -50,6 +46,8 @@
   }
 
   .l-section {
+    display: flex;
+    justify-content: center;
     min-height: 100%;
     padding: 8rem 2rem 2rem;
   }
