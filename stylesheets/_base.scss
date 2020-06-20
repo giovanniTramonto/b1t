@@ -14,11 +14,20 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+
+  &.t-console {
+    background: black;
+  }
 }
 
 body {
   background: map-get($colors, 'background');
   color: map-get($colors, 'text');
+
+  .t-console & {
+    background: black;
+    color: white;
+  }
 }
 
 p {

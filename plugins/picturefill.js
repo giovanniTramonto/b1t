@@ -1,3 +1,3 @@
-export default ({ app, store }) => {
+export default () => {
   require('picturefill')
 }

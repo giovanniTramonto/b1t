@@ -30,6 +30,7 @@
     "nodemon": "^1.11.0",
     "picturefill": "^3.0.3",
     "prettier": "1.14.3",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "typed.js": "^2.0.11"
   }
 }
