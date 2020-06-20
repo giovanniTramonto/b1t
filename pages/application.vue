@@ -12,7 +12,7 @@
             I’ve studied type design in Paris (my hometown) and in Reading (UK).<br>
             I have been drawing and mastering letters in LA (LuxTypo), London (Dalton Maag) and Berlin (Monotype).<br>
             I am now freelancing.<br>
-            I have been heading the design and production of the new Noto Sans Oriya (variable font family) for Google fonts last. I would be happy and thrilled to assist you guys at Source Type.<br>
+            I have been heading the design and production of the new Noto Sans Oriya (variable font family) for Google Fonts last. I would be happy and thrilled to assist you guys at Source Type.<br>
             And not to forget, I am most of the time surrounded by music when I push nodes and pull curves.<br>
             <br>
             To find out more, press any key
@@ -85,7 +85,7 @@ export default {
   &__message {
     flex: 1;
     position: relative;
-    font-size: calc(20px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   }
 }
 </style>
