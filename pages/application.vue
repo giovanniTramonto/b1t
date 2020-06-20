@@ -1,5 +1,6 @@
 <template>
   <main
+    v-show="showTyping"
     role="main"
     class="console"
     @click="onClickConsole"
@@ -33,7 +34,8 @@ export default {
 
   data() {
     return {
-      isTypingComplete: false
+      isTypingComplete: false,
+      showTyping: false
     }
   },
 
@@ -41,6 +43,9 @@ export default {
     new Typed('#typed', {
       stringsElement: '#typed-strings',
       typeSpeed: 30,
+      onBegin: () => {
+        this.showTyping = true
+      },
       onComplete: () => {
         this.isTypingComplete = true
       }
@@ -51,6 +56,7 @@ export default {
 
   beforeDestroyed() {
     this.isTypingComplete = false
+    this.showTyping = false
     document.removeEventListener('keydown', this.onKeydownConsole)
   },
 
@@ -72,7 +78,7 @@ export default {
 
 <style lang="scss">
 .console {
-  padding: 15vw 10vw;
+  padding: 0 10vw 20vw;
   height: 100vh;
   display: flex;
   align-items: flex-end;
