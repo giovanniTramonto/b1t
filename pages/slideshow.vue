@@ -3,7 +3,10 @@
     role="main"
     class="slideshow"
   >
-    <slider :slides="slides" />
+    <Slider
+      :slides="slides"
+      class="slideshow__slider"
+    />
   </main>
 </template>
 
@@ -19,16 +22,34 @@ export default {
     return {
       slides: [
         {
-          default: 'images/slides7--w900.jpg',
-          large: 'images/slides7--w1800.jpg'
+          default: 'images/portfolio/D.png'
         },
         {
-          default: 'images/slides8--w900.jpg',
-          large: 'images/slides8--w1800.jpg'
+          default: 'images/portfolio/F.png'
         },
         {
-          default: 'images/slides9--w900.jpg',
-          large: 'images/slides9--w1800.jpg'
+          default: 'images/portfolio/G.png'
+        },
+        {
+          default: 'images/portfolio/J.png'
+        },
+        {
+          default: 'images/portfolio/L.png'
+        },
+        {
+          default: 'images/portfolio/O.png'
+        },
+        {
+          default: 'images/portfolio/Q.png'
+        },
+        {
+          default: 'images/portfolio/R.png'
+        },
+        {
+          default: 'images/portfolio/S.png'
+        },
+        {
+          default: 'images/portfolio/Y.png'
         }
       ]
     }
@@ -37,23 +58,21 @@ export default {
 </script>
 
 <style lang="scss">
-.console {
-  padding: 15vw 10vw;
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
+.slideshow {
+  &__slider {
+    height: 100vh;
+    width: 100vw;
 
-  &__wrapper {
-    flex: 1;
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-  }
+    & > div {
+      height: 100%;
+    }
 
-  &__message {
-    flex: 1;
-    position: relative;
-    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    picture img {
+      width: auto;
+      max-width: none;
+      height: 100%;
+      max-height: 1000px;
+    }
   }
 }
 </style>

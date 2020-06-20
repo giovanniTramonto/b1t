@@ -26,6 +26,9 @@ html.t-portfolio {
   & body {
     background: black;
     color: white;
+    // Prevent history navigation (swiping left/right) on slideshows on
+    // Chrome & Firefox:
+    overscroll-behavior-x: none;
   }
 }
 

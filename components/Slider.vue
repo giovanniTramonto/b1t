@@ -1,26 +1,26 @@
 <template>
-  <div :class="$style.slider">
-    <span
-      :class="[$style.control, $style.controlPrev]"
-      @click="swipe('prev')" />
-    <span
-      :class="[$style.control, $style.controlNext]"
-      @click="swipe('next')" />
+  <div
+    :class="$style.slider"
+    @click="swipe('next')"
+  >
     <div :class="$style.sliderInner">
-      <div
-        :class="$style.slides"
-        :style="getInnerStyle">
+      <div :class="$style.slides">
         <div
           v-for="(slide, index) in slides"
+          ref="slides"
           :class="$style.slide"
           :key="index">
           <picture :class="$style.picture">
-            <source
-              :srcset="`${path}${slide.large}`"
-              media="(min-width: 450px)">
-            <img
-              :srcset="`${path}${slide.default}`"
-              alt="">
+            <template v-if="slide.large">
+              <source
+                v-if="slide.large"
+                :srcset="`${path}${slide.large}`"
+                media="(min-width: 450px)">
+              <img :srcset="`${path}${slide.default}`">
+            </template>
+            <template v-else>
+              <img :src="`${path}${slide.default}`">
+            </template>
           </picture>
         </div>
       </div>
@@ -61,26 +61,25 @@ export default {
     }
   },
 
-  computed: {
-    getInnerStyle() {
-      return {
-        left: `${this.position * 100}%`
-      }
-    }
-  },
-
   methods: {
     swipe(pos) {
+      this.setPosition(pos)
+      // this.scrollSlideIntoView()
+    },
+    setPosition(pos) {
       const { position, slides } = this
       if (pos === 'next') {
-        pos = position - 1
-      } else if (pos === 'prev') {
         pos = position + 1
-      } else {
-        pos = pos * -1
+      } else if (pos === 'prev') {
+        pos = position - 1
       }
-      const p = Math.abs(pos) > slides.length - 1 ? 0 : pos
-      this.position = p === 1 ? (slides.length - 1) * -1 : p
+      const p = pos > slides.length - 1 ? 0 : pos
+      this.position = p === -1 ? slides.length - 1 : p
+    },
+    scrollSlideIntoView() {
+      this.$refs.slides[this.position].scrollIntoView({
+        behavior: 'smooth'
+      })
     }
   }
 }
@@ -95,40 +94,34 @@ export default {
   overflow: hidden;
 }
 .slides {
+  height: inherit;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
-  transition: left 0.5s;
-}
-.slide {
-  flex: 1 0 100%;
-}
+  // transition: left 0.5s;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; // Firefox
+  -webkit-overflow-scrolling: touch;
 
-.control {
-  position: absolute;
-  z-index: 2;
-  width: 50%;
-  top: 0;
-  bottom: 0;
-  user-select: none;
-
-  :focus,
-  :active {
-    outline: none;
+  &::-webkit-scrollbar {
+    display: none; // Safari and Chrome
   }
 }
-.controlNext {
-  right: 0;
-  cursor: e-resize;
-}
-.controlPrev {
-  left: 0;
-  cursor: w-resize;
+.slide {
+  max-width: 100vw;
+  height: inherit;
+  overflow: hidden;
+  flex: 1 0 100%;
+  scroll-snap-align: start center;
 }
 
 .picture {
   display: block;
   line-height: 0;
+  text-align: center;
+  height: inherit;
 
   img {
     max-width: 100%;
