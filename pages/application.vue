@@ -8,11 +8,12 @@
       <div class="console__message">
         <div id="typed-strings">
           <p>
-            Hi, I am a type designer and font engineer based in Berlin.<br>
+            Hi, my name is <b>Amélie Bonet</b>.^1000 <br>
+            I am a type designer and font engineer based in Berlin.<br>
             I’ve studied type design in Paris (my hometown) and in Reading (UK).<br>
             I have been drawing and mastering letters in LA (LuxTypo), London (Dalton Maag) and Berlin (Monotype).<br>
-            I am now freelancing.<br>
-            I have been heading the design and production of the new Noto Sans Oriya (variable font family) for Google Fonts last. I would be happy and thrilled to assist you guys at Source Type.<br>
+            I am now free^1000lancing.<br>
+            I have been heading the design and production of the new Noto Sans Oriya (variable font family) for Google Fonts last. I would be happy to assist you guys at Source Type.<br>
             And not to forget, I am most of the time surrounded by music when I push nodes and pull curves.<br>
             <br>
             To find out more, press any key
@@ -28,7 +29,7 @@
 import Typed from 'typed.js'
 
 export default {
-  layout: 'console',
+  layout: 'portfolio',
 
   data() {
     return {
@@ -48,7 +49,8 @@ export default {
     document.addEventListener('keydown', this.onKeydownConsole)
   },
 
-  beforeDesrroyed() {
+  beforeDestroyed() {
+    this.isTypingComplete = false
     document.removeEventListener('keydown', this.onKeydownConsole)
   },
 
@@ -61,7 +63,7 @@ export default {
     },
     goToNextpage() {
       if (this.isTypingComplete) {
-        this.$router.push('/')
+        this.$router.push('/slideshow')
       }
     }
   }

@@ -7,7 +7,7 @@ export default {
   head() {
     return {
       htmlAttrs: {
-        class: 't-console'
+        class: 't-portfolio'
       }
     }
   }
