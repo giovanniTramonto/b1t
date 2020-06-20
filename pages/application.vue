@@ -2,7 +2,6 @@
   <main
     role="main"
     class="console"
-    @keydown="onKeydownConsole"
     @click="onClickConsole"
   >
     <div class="console__wrapper">
@@ -45,6 +44,12 @@ export default {
         this.isTypingComplete = true
       }
     })
+
+    document.addEventListener('keydown', this.onKeydownConsole)
+  },
+
+  beforeDesrroyed() {
+    document.removeEventListener('keydown', this.onKeydownConsole)
   },
 
   methods: {
@@ -65,7 +70,7 @@ export default {
 
 <style lang="scss">
 .console {
-  padding: 5vw 10vw;
+  padding: 15vw 10vw;
   height: 100vh;
   display: flex;
   align-items: flex-end;
@@ -80,7 +85,7 @@ export default {
   &__message {
     flex: 1;
     position: relative;
-    font-size: 40px;
+    font-size: calc(20px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   }
 }
 </style>
