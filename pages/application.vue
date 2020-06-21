@@ -79,7 +79,7 @@ export default {
 <style lang="scss">
 .console {
   padding: 0 10vw 20vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: flex-end;
 

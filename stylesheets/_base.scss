@@ -30,6 +30,13 @@ html.t-portfolio {
     // Chrome & Firefox:
     overscroll-behavior-x: none;
   }
+
+  &,
+  & body,
+  & #__nuxt,
+  & #__layout {
+    height: 100%;
+  }
 }
 
 p {

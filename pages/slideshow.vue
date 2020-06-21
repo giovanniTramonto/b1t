@@ -59,8 +59,10 @@ export default {
 
 <style lang="scss">
 .slideshow {
+  height: 100%;
+
   &__slider {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
 
     & > div {
