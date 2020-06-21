@@ -21,9 +21,6 @@ export const state = () => ({
     'S',
     'T',
     'U',
-    'V',
-    'W',
-    'X',
     'Y',
     'Z'
   ]
