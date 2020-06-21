@@ -1,14 +1,18 @@
 <template>
   <div
     :class="$style.slider"
-    @click="swipe('next')"
+    @click="slideTo"
   >
     <div :class="$style.sliderInner">
-      <div :class="$style.slides">
+      <div
+        ref="slider"
+        :class="$style.slides"
+      >
         <div
           v-for="(slide, index) in slides"
           ref="slides"
           :class="$style.slide"
+          :data-index="index"
           :key="index">
           <picture :class="$style.picture">
             <template v-if="slide.large">
@@ -34,12 +38,14 @@
         :class="[
           $style.iterateItem,
           { [$style.iterateItemSelected]: index === Math.abs(position) }]"
-        @click="swipe(index)" />
+        @click="scrollSlideIntoView(index)" />
     </ul>
   </div>
 </template>
 
 <script>
+const SLIDE_TIMEOUT = 5000
+
 export default {
   props: {
     slides: {
@@ -57,29 +63,71 @@ export default {
   data() {
     return {
       position: 0,
-      iterations: false
+      iterations: false,
+      observers: null,
+      slideTimeout: null
     }
   },
 
+  mounted() {
+    this.observers = new WeakMap()
+    for (const slide of this.$refs.slides) {
+      const observer = this.createSlideObserver()
+      observer.observe(slide)
+      this.observers.set(observer)
+    }
+    this.slideAutomatically()
+  },
+
+  beforeDestroy() {
+    clearTimeout(this.slideTimeout)
+    this.observers = null
+  },
+
   methods: {
-    swipe(pos) {
-      this.setPosition(pos)
-      // this.scrollSlideIntoView()
+    slideTo(event) {
+      this.scrollSlideIntoView(
+        this.getPosition(
+          event.clientX > window.innerWidth / 2 ? 'next' : 'prev'
+        )
+      )
     },
-    setPosition(pos) {
-      const { position, slides } = this
-      if (pos === 'next') {
-        pos = position + 1
-      } else if (pos === 'prev') {
-        pos = position - 1
+    getPosition(direction) {
+      let p = 0
+      const { slides } = this
+      const position = Number(this.position)
+      if (direction === 'next') {
+        p = position + 1
+      } else if (direction === 'prev') {
+        p = position - 1
       }
-      const p = pos > slides.length - 1 ? 0 : pos
-      this.position = p === -1 ? slides.length - 1 : p
+      return p < slides.length && p >= 0 ? p : position
     },
-    scrollSlideIntoView() {
-      this.$refs.slides[this.position].scrollIntoView({
+    scrollSlideIntoView(position) {
+      this.$refs.slides[position].scrollIntoView({
         behavior: 'smooth'
       })
+      this.slideAutomatically()
+    },
+    onIntersection([entries]) {
+      if (entries.isIntersecting) {
+        this.position = entries.target.dataset.index
+      }
+      this.slideAutomatically()
+    },
+    createSlideObserver() {
+      return new IntersectionObserver(this.onIntersection, {
+        rootMargin: '0px',
+        threshold: 1.0
+      })
+    },
+    slideAutomatically() {
+      clearTimeout(this.slideTimeout)
+      this.slideTimeout = setTimeout(() => {
+        this.slideTo({
+          clientX: window.innerWidth
+        })
+      }, SLIDE_TIMEOUT)
     }
   }
 }
@@ -98,10 +146,11 @@ export default {
   position: relative;
   display: flex;
   flex-flow: row nowrap;
-  // transition: left 0.5s;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
+  scroll-snap-coordinate: 0 0; // Deprecated.
+  scroll-snap-points-x: repeat(100%); // Deprecated.
   scrollbar-width: none; // Firefox
   -webkit-overflow-scrolling: touch;
 
