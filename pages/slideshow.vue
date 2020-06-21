@@ -4,7 +4,7 @@
     class="slideshow"
   >
     <Slider
-      :slides="slides"
+      :slides="portfolioSlides"
       class="slideshow__slider"
     />
   </main>
@@ -13,46 +13,14 @@
 <script>
 import Typed from 'typed.js'
 import Slider from '@/components/Slider'
+import { mapGetters } from 'vuex'
 
 export default {
   components: { Slider },
   layout: 'portfolio',
 
-  data() {
-    return {
-      slides: [
-        {
-          default: 'images/portfolio/D.jpg'
-        },
-        {
-          default: 'images/portfolio/F.jpg'
-        },
-        {
-          default: 'images/portfolio/G.jpg'
-        },
-        {
-          default: 'images/portfolio/J.jpg'
-        },
-        {
-          default: 'images/portfolio/L.jpg'
-        },
-        {
-          default: 'images/portfolio/O.jpg'
-        },
-        {
-          default: 'images/portfolio/Q.jpg'
-        },
-        {
-          default: 'images/portfolio/R.jpg'
-        },
-        {
-          default: 'images/portfolio/S.jpg'
-        },
-        {
-          default: 'images/portfolio/Y.jpg'
-        }
-      ]
-    }
+  computed: {
+    ...mapGetters('slides', ['portfolioSlides'])
   }
 }
 </script>

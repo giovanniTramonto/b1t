@@ -7,6 +7,7 @@
       <div
         ref="slider"
         :class="$style.slides"
+        @scroll="onScroll"
       >
         <div
           v-for="(slide, index) in slides"
@@ -75,7 +76,6 @@ export default {
   },
 
   mounted() {
-    this.setScrollIntoView()
     this.observer = new IntersectionObserver(this.onIntersection, {
       root: this.$refs.slider,
       rootMargin: '0px',
@@ -84,6 +84,8 @@ export default {
     for (const slide of this.$refs.slides) {
       this.observer.observe(slide)
     }
+
+    this.setScrollIntoView()
     this.slideAutomatically()
   },
 
@@ -128,6 +130,10 @@ export default {
       if (entry.isIntersecting) {
         this.position = entry.target.dataset.index
       }
+      this.slideAutomatically()
+    },
+    onScroll() {
+      // That’s actually only for browser that don’t support scroll snapping
       this.slideAutomatically()
     },
     slideAutomatically() {
