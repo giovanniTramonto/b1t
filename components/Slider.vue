@@ -1,7 +1,6 @@
 <template>
   <div :class="$style.slider">
     <div
-      v-show="showSlider"
       :class="$style.sliderInner"
       @click="slideTo"
     >
@@ -32,7 +31,7 @@
       </div>
     </div>
     <ul
-      v-if="iterations && showSlider"
+      v-if="iterations"
       :class="$style.iterator">
       <li
         v-for="(slide, index) in slides"
@@ -42,12 +41,6 @@
           { [$style.iterateItemSelected]: index === Math.abs(position) }]"
         @click="scrollSlideIntoView(index)" />
     </ul>
-    <div
-      v-show="!showSlider && showLoader"
-      :class="$style.sliderLoading"
-    >
-      <span :class="$style.sliderLoadAnimation">Loading</span>
-    </div>
   </div>
 </template>
 
@@ -56,7 +49,6 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed'
 
 const SLIDE_TIMEOUT = 2000
-const LOADER_DELAY = 1000
 
 export default {
   props: {
@@ -78,9 +70,7 @@ export default {
       iterations: false,
       observer: null,
       slideTimeout: null,
-      scrollIntoViewSmoothly: () => {},
-      showSlider: false,
-      showLoader: false
+      scrollIntoViewSmoothly: () => {}
     }
   },
 
@@ -94,22 +84,7 @@ export default {
     for (const slide of this.$refs.slides) {
       this.observer.observe(slide)
     }
-    for (const slide of this.slides) {
-      slide.loaded = false
-      const image = new Image()
-      image.addEventListener('load', event => {
-        slide.loaded = true
-        if (!this.slides.some(slide => !slide.loaded)) {
-          this.showSlider = true
-          this.slideAutomatically()
-        }
-      })
-      image.src = slide.default
-    }
-    // Prevent showing loader every time, if images are preloaded
-    setTimeout(() => {
-      this.showLoader = true
-    }, LOADER_DELAY)
+    this.slideAutomatically()
   },
 
   beforeDestroy() {
@@ -161,13 +136,11 @@ export default {
     },
     slideAutomatically() {
       clearTimeout(this.slideTimeout)
-      if (this.showSlider) {
-        this.slideTimeout = setTimeout(() => {
-          this.slideTo({
-            clientX: window.innerWidth
-          })
-        }, SLIDE_TIMEOUT)
-      }
+      this.slideTimeout = setTimeout(() => {
+        this.slideTo({
+          clientX: window.innerWidth
+        })
+      }, SLIDE_TIMEOUT)
     }
   }
 }
@@ -247,29 +220,5 @@ export default {
   width: 0.8rem;
   height: 0.8rem;
   cursor: default;
-}
-
-.sliderLoading {
-  left: 50%;
-  top: 50%;
-  position: absolute;
-  transform: translate2d(-50%, -50%);
-}
-
-.sliderLoadAnimation {
-  animation: animate-loading 1s infinite;
-}
-
-/* Animation Keyframes*/
-@keyframes animate-loading {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 </style>
