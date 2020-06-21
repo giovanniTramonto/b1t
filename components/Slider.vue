@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import scrollIntoView from 'scroll-into-view-if-needed'
+
 const SLIDE_TIMEOUT = 5000
 
 export default {
@@ -64,17 +66,19 @@ export default {
     return {
       position: 0,
       iterations: false,
-      observers: null,
+      observer: null,
       slideTimeout: null
     }
   },
 
   mounted() {
-    this.observers = new WeakMap()
+    this.observer = new IntersectionObserver(this.onIntersection, {
+      root: this.$refs.slider,
+      rootMargin: '0px',
+      threshold: 0.95
+    })
     for (const slide of this.$refs.slides) {
-      const observer = this.createSlideObserver()
-      observer.observe(slide)
-      this.observers.set(observer)
+      this.observer.observe(slide)
     }
     this.slideAutomatically()
   },
@@ -86,12 +90,11 @@ export default {
 
   methods: {
     slideTo(event) {
-      console.log(event, window, window.innerWidth)
-      this.scrollSlideIntoView(
-        this.getPosition(
-          event.clientX > window.innerWidth / 2 ? 'next' : 'prev'
-        )
+      const position = this.getPosition(
+        event.clientX > window.innerWidth / 2 ? 'next' : 'prev'
       )
+      this.scrollSlideIntoView(position)
+      this.position = position
     },
     getPosition(direction) {
       let p = 0
@@ -102,27 +105,19 @@ export default {
       } else if (direction === 'prev') {
         p = position - 1
       }
-      console.log(direction, position, p)
       return p < slides.length && p >= 0 ? p : position
     },
     scrollSlideIntoView(position) {
-      console.log(this.$refs.slides, this.$refs.slides[position], position)
-      this.$refs.slides[position].scrollIntoView({
+      scrollIntoView(this.$refs.slides[position], {
         behavior: 'smooth'
       })
       this.slideAutomatically()
     },
-    onIntersection([entries]) {
-      if (entries.isIntersecting) {
-        this.position = entries.target.dataset.index
+    onIntersection([entry]) {
+      if (entry.isIntersecting) {
+        this.position = entry.target.dataset.index
       }
       this.slideAutomatically()
-    },
-    createSlideObserver() {
-      return new IntersectionObserver(this.onIntersection, {
-        rootMargin: '0px',
-        threshold: 1.0
-      })
     },
     slideAutomatically() {
       clearTimeout(this.slideTimeout)
