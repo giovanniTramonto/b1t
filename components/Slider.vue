@@ -1,5 +1,6 @@
 <template>
   <div
+    v-show="showSlider"
     :class="$style.slider"
     @click="slideTo"
   >
@@ -49,6 +50,7 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed'
 
 const SLIDE_TIMEOUT = 2000
+const INITIAL_LOADING_DELAY = 3000
 
 export default {
   props: {
@@ -76,6 +78,7 @@ export default {
   },
 
   mounted() {
+    this.setScrollIntoView()
     this.observer = new IntersectionObserver(this.onIntersection, {
       root: this.$refs.slider,
       rootMargin: '0px',
@@ -84,9 +87,10 @@ export default {
     for (const slide of this.$refs.slides) {
       this.observer.observe(slide)
     }
-
-    this.setScrollIntoView()
-    this.slideAutomatically()
+    // No time to look for serious loading strategies
+    setTimeout(() => {
+      this.showSlider = true
+    }, INITIAL_LOADING_DELAY)
   },
 
   beforeDestroy() {
