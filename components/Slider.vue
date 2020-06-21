@@ -86,6 +86,7 @@ export default {
 
   methods: {
     slideTo(event) {
+      console.log(event, window, window.innerWidth)
       this.scrollSlideIntoView(
         this.getPosition(
           event.clientX > window.innerWidth / 2 ? 'next' : 'prev'
@@ -101,9 +102,11 @@ export default {
       } else if (direction === 'prev') {
         p = position - 1
       }
+      console.log(direction, position, p)
       return p < slides.length && p >= 0 ? p : position
     },
     scrollSlideIntoView(position) {
+      console.log(this.$refs.slides, this.$refs.slides[position], position)
       this.$refs.slides[position].scrollIntoView({
         behavior: 'smooth'
       })
