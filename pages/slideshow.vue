@@ -3,7 +3,7 @@
     role="main"
     class="slideshow"
   >
-    <Slider
+    <slider
       :slides="portfolioSlides"
       class="slideshow__slider"
       shuffle

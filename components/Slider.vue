@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.slider">
     <div
-      :class="[$style.sliderInner, { [$style.sliderInnerVisible]: showSlider }]"
+      :class="$style.sliderInner"
       @click="slideTo"
     >
       <div
@@ -75,8 +75,7 @@ export default {
       iterations: false,
       observer: null,
       slideTimeout: null,
-      scrollIntoViewSmoothly: () => {},
-      showSlider: false
+      scrollIntoViewSmoothly: () => {}
     }
   },
 
@@ -97,11 +96,7 @@ export default {
     for (const slide of this.$refs.slides) {
       this.observer.observe(slide)
     }
-    // setTimeout(() => {
-    //   this.showSlider = true
-    //   this.slideAutomatically()
-    // }, SLIDER_DISPLAY_DELAY)
-    this.showSlider = true
+    this.slideAutomatically()
   },
 
   beforeDestroy() {
@@ -174,11 +169,6 @@ function shuffle(array) {
 }
 .sliderInner {
   overflow: hidden;
-  opacity: 0;
-  transition: opacity 1s linear;
-}
-.sliderInnerVisible {
-  opacity: 1;
 }
 .slides {
   height: inherit;
