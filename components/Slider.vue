@@ -45,6 +45,7 @@
 
 <script>
 import scrollIntoView from 'scroll-into-view-if-needed'
+import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed'
 
 const SLIDE_TIMEOUT = 5000
 
@@ -67,11 +68,13 @@ export default {
       position: 0,
       iterations: false,
       observer: null,
-      slideTimeout: null
+      slideTimeout: null,
+      scrollIntoViewSmoothly: () => {}
     }
   },
 
   mounted() {
+    this.setScrollIntoView()
     this.observer = new IntersectionObserver(this.onIntersection, {
       root: this.$refs.slider,
       rootMargin: '0px',
@@ -89,6 +92,13 @@ export default {
   },
 
   methods: {
+    setScrollIntoView() {
+      // To support ie. safari iOS smooth scroll
+      this.scrollIntoViewSmoothly =
+        'scrollBehavior' in document.documentElement.style
+          ? scrollIntoView
+          : smoothScrollIntoView
+    },
     slideTo(event) {
       const position = this.getPosition(
         event.clientX > window.innerWidth / 2 ? 'next' : 'prev'
@@ -108,7 +118,7 @@ export default {
       return p < slides.length && p >= 0 ? p : position
     },
     scrollSlideIntoView(position) {
-      scrollIntoView(this.$refs.slides[position], {
+      this.scrollIntoViewSmoothly(this.$refs.slides[position], {
         behavior: 'smooth'
       })
       this.slideAutomatically()
