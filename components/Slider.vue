@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.slider">
     <div
-      :class="sliderInnerClasses"
+      :class="[$style.sliderInner, { [$style.sliderInnerVisible]: showSlider }]"
       @click="slideTo"
     >
       <div
@@ -84,14 +84,6 @@ export default {
     sortedSlides() {
       const { slides } = this
       return this.shuffle ? shuffle(slides) : slides
-    },
-    sliderInnerClasses() {
-      const { $style } = this
-      const classes = [$style.sliderInner]
-      if (this.showSlider) {
-        classes.push($style.sliderInnerVisible)
-      }
-      return classes
     }
   },
 
