@@ -28,7 +28,6 @@
 
 <script>
 import Typed from 'typed.js'
-import { mapGetters } from 'vuex'
 
 export default {
   layout: 'portfolio',
@@ -38,10 +37,6 @@ export default {
       isTypingComplete: false,
       showTyping: false
     }
-  },
-
-  computed: {
-    ...mapGetters('slides', ['portfolioSlides'])
   },
 
   mounted() {
@@ -57,13 +52,6 @@ export default {
     })
 
     window.addEventListener('keydown', this.onKeydownConsole, false)
-
-    // Preload the slides images already here, so there are cached already
-    // when arriving on slideshow page
-    for (const slide of this.portfolioSlides) {
-      const image = new Image()
-      image.src = slide.default
-    }
   },
 
   beforeDestroyed() {
