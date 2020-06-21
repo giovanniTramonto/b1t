@@ -15,7 +15,8 @@
             I have been drawing and mastering letters in LA (LuxTypo), London (Dalton Maag) and Berlin (Monotype).<br>
             I am now free^1000lancing.<br>
             I have been heading the design and production of the new Noto Sans Oriya (variable font family) for Google Fonts last. I would be happy to assist you guys at Source Type.<br>
-            And not to forget, I am most of the time surrounded by music when I push nodes and pull curves.<br>
+            <br>
+            And, I am like listening to music when I push nodes and pull curves.<br>
             <br>
             To find out more, press any key
           </p>
