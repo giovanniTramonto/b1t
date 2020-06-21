@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.slider">
     <div
-      :class="$style.sliderInner"
+      :class="sliderInnerClasses"
       @click="slideTo"
     >
       <div
@@ -10,7 +10,7 @@
         @scroll="onScroll"
       >
         <div
-          v-for="(slide, index) in slides"
+          v-for="(slide, index) in sortedSlides"
           ref="slides"
           :class="$style.slide"
           :data-index="index"
@@ -49,6 +49,7 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed'
 
 const SLIDE_TIMEOUT = 2000
+const SLIDER_DISPLAY_DELAY = 2000
 
 export default {
   props: {
@@ -61,6 +62,10 @@ export default {
     path: {
       type: String,
       default: '/'
+    },
+    shuffle: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -70,7 +75,24 @@ export default {
       iterations: false,
       observer: null,
       slideTimeout: null,
-      scrollIntoViewSmoothly: () => {}
+      scrollIntoViewSmoothly: () => {},
+      showSlider: false
+    }
+  },
+
+  computed: {
+    sortedSlides() {
+      const { slides } = this
+      return this.shuffle ? shuffle(slides) : slides
+    },
+    sliderInnerClasses() {
+      const { $style } = this
+      return [
+        $style.sliderInner,
+        {
+          [$style.sliderInnerVisible]: this.showSlider
+        }
+      ]
     }
   },
 
@@ -84,7 +106,10 @@ export default {
     for (const slide of this.$refs.slides) {
       this.observer.observe(slide)
     }
-    this.slideAutomatically()
+    setTimeout(() => {
+      this.showSlider = true
+      this.slideAutomatically()
+    }, SLIDER_DISPLAY_DELAY)
   },
 
   beforeDestroy() {
@@ -109,14 +134,14 @@ export default {
     },
     getPosition(direction) {
       let p = 0
-      const { slides } = this
+      const { sortedSlides } = this
       const position = Number(this.position)
       if (direction === 'next') {
         p = position + 1
       } else if (direction === 'prev') {
         p = position - 1
       }
-      return p < slides.length && p >= 0 ? p : position
+      return p < sortedSlides.length && p >= 0 ? p : position
     },
     scrollSlideIntoView(position) {
       this.scrollIntoViewSmoothly(this.$refs.slides[position], {
@@ -144,6 +169,10 @@ export default {
     }
   }
 }
+
+function shuffle(array) {
+  return array.sort(() => 0.5 - Math.random())
+}
 </script>
 
 
@@ -153,6 +182,11 @@ export default {
 }
 .sliderInner {
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+.sliderInnerVisible {
+  opacity: 1;
 }
 .slides {
   height: inherit;

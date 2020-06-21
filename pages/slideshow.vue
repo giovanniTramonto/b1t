@@ -6,6 +6,7 @@
     <Slider
       :slides="portfolioSlides"
       class="slideshow__slider"
+      shuffle
     />
   </main>
 </template>
