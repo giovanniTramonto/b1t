@@ -87,12 +87,11 @@ export default {
     },
     sliderInnerClasses() {
       const { $style } = this
-      return [
-        $style.sliderInner,
-        {
-          [$style.sliderInnerVisible]: this.showSlider
-        }
-      ]
+      const classes = [$style.sliderInner]
+      if (this.showSlider) {
+        classes.push($style.sliderInnerVisible)
+      }
+      return classes
     }
   },
 
