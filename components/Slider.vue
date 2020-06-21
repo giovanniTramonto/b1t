@@ -1,6 +1,5 @@
 <template>
   <div
-    v-show="showSlider"
     :class="$style.slider"
     @click="slideTo"
   >
@@ -85,20 +84,7 @@ export default {
     for (const slide of this.$refs.slides) {
       this.observer.observe(slide)
     }
-    // Preload first image to prevent flicker on load
-    const firstSlide = this.slides[0]
-    if (firstSlide) {
-      const image = new Image()
-      image.addEventListener(
-        'load',
-        () => {
-          this.showSlider = true
-          this.slideAutomatically()
-        },
-        false
-      )
-      image.src = firstSlide.default
-    }
+    this.slideAutomatically()
   },
 
   beforeDestroy() {
@@ -182,6 +168,7 @@ export default {
   }
 }
 .slide {
+  overflow: hidden;
   max-width: 100vw;
   height: inherit;
   flex: 1 0 100%;
