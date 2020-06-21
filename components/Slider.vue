@@ -1,10 +1,10 @@
 <template>
-  <div
-    v-show="showSlider"
-    :class="$style.slider"
-    @click="slideTo"
-  >
-    <div :class="$style.sliderInner">
+  <div :class="$style.slider">
+    <div
+      v-show="showSlider"
+      :class="$style.sliderInner"
+      @click="slideTo"
+    >
       <div
         ref="slider"
         :class="$style.slides"
@@ -32,7 +32,7 @@
       </div>
     </div>
     <ul
-      v-if="iterations"
+      v-if="iterations && showSlider"
       :class="$style.iterator">
       <li
         v-for="(slide, index) in slides"
@@ -42,6 +42,12 @@
           { [$style.iterateItemSelected]: index === Math.abs(position) }]"
         @click="scrollSlideIntoView(index)" />
     </ul>
+    <div
+      v-show="!showSlider && showLoader"
+      :class="$style.sliderLoading"
+    >
+      <span :class="$style.sliderLoadAnimation">Loading</span>
+    </div>
   </div>
 </template>
 
@@ -50,7 +56,7 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed'
 
 const SLIDE_TIMEOUT = 2000
-const INITIAL_LOADING_DELAY = 3000
+const LOADER_DELAY = 1000
 
 export default {
   props: {
@@ -68,12 +74,13 @@ export default {
 
   data() {
     return {
-      showSlider: false,
       position: 0,
       iterations: false,
       observer: null,
       slideTimeout: null,
-      scrollIntoViewSmoothly: () => {}
+      scrollIntoViewSmoothly: () => {},
+      showSlider: false,
+      showLoader: false
     }
   },
 
@@ -87,10 +94,22 @@ export default {
     for (const slide of this.$refs.slides) {
       this.observer.observe(slide)
     }
-    // No time to look for serious loading strategies
+    for (const slide of this.slides) {
+      slide.loaded = false
+      const image = new Image()
+      image.addEventListener('load', event => {
+        slide.loaded = true
+        if (!this.slides.some(slide => !slide.loaded)) {
+          this.showSlider = true
+          this.slideAutomatically()
+        }
+      })
+      image.src = slide.default
+    }
+    // Prevent showing loader every time, if images are preloaded
     setTimeout(() => {
-      this.showSlider = true
-    }, INITIAL_LOADING_DELAY)
+      this.showLoader = true
+    }, LOADER_DELAY)
   },
 
   beforeDestroy() {
@@ -142,11 +161,13 @@ export default {
     },
     slideAutomatically() {
       clearTimeout(this.slideTimeout)
-      this.slideTimeout = setTimeout(() => {
-        this.slideTo({
-          clientX: window.innerWidth
-        })
-      }, SLIDE_TIMEOUT)
+      if (this.showSlider) {
+        this.slideTimeout = setTimeout(() => {
+          this.slideTo({
+            clientX: window.innerWidth
+          })
+        }, SLIDE_TIMEOUT)
+      }
     }
   }
 }
@@ -226,5 +247,29 @@ export default {
   width: 0.8rem;
   height: 0.8rem;
   cursor: default;
+}
+
+.sliderLoading {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate2d(-50%, -50%);
+}
+
+.sliderLoadAnimation {
+  animation: animate-loading 1s infinite;
+}
+
+/* Animation Keyframes*/
+@keyframes animate-loading {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>
