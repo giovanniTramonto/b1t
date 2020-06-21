@@ -105,10 +105,11 @@ export default {
     for (const slide of this.$refs.slides) {
       this.observer.observe(slide)
     }
-    setTimeout(() => {
-      this.showSlider = true
-      this.slideAutomatically()
-    }, SLIDER_DISPLAY_DELAY)
+    // setTimeout(() => {
+    //   this.showSlider = true
+    //   this.slideAutomatically()
+    // }, SLIDER_DISPLAY_DELAY)
+    this.showSlider = true
   },
 
   beforeDestroy() {
