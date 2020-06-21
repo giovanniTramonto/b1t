@@ -47,7 +47,7 @@
 import scrollIntoView from 'scroll-into-view-if-needed'
 import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed'
 
-const SLIDE_TIMEOUT = 5000
+const SLIDE_TIMEOUT = 2000
 
 export default {
   props: {
@@ -169,7 +169,6 @@ export default {
 .slide {
   max-width: 100vw;
   height: inherit;
-  overflow: hidden;
   flex: 1 0 100%;
   scroll-snap-align: start center;
 }
