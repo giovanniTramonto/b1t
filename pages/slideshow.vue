@@ -22,34 +22,34 @@ export default {
     return {
       slides: [
         {
-          default: 'images/portfolio/D.jpg'
+          default: 'images/portfolio/D.png'
         },
         {
-          default: 'images/portfolio/F.jpg'
+          default: 'images/portfolio/F.png'
         },
         {
-          default: 'images/portfolio/G.jpg'
+          default: 'images/portfolio/G.png'
         },
         {
-          default: 'images/portfolio/J.jpg'
+          default: 'images/portfolio/J.png'
         },
         {
-          default: 'images/portfolio/L.jpg'
+          default: 'images/portfolio/L.png'
         },
         {
-          default: 'images/portfolio/O.jpg'
+          default: 'images/portfolio/O.png'
         },
         {
-          default: 'images/portfolio/Q.jpg'
+          default: 'images/portfolio/Q.png'
         },
         {
-          default: 'images/portfolio/R.jpg'
+          default: 'images/portfolio/R.png'
         },
         {
-          default: 'images/portfolio/S.jpg'
+          default: 'images/portfolio/S.png'
         },
         {
-          default: 'images/portfolio/Y.jpg'
+          default: 'images/portfolio/Y.png'
         }
       ]
     }
