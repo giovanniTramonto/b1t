@@ -20,7 +20,7 @@
               <source
                 v-if="slide.large"
                 :srcset="`${path}${slide.large}`"
-                media="(min-width: 450px)">
+                media="(min-width: 768px)">
               <img :srcset="`${path}${slide.default}`">
             </template>
             <template v-else>

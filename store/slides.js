@@ -32,6 +32,7 @@ export const state = () => ({
 export const getters = {
   portfolioSlides: state =>
     state.slides.map(name => ({
-      default: `images/portfolio/${name}.jpg`
+      default: `images/portfolio/default/${name}.jpg`,
+      large: `images/portfolio/large/${name}.jpg`
     }))
 }
