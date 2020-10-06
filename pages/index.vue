@@ -26,10 +26,10 @@
             <button class="button">
               Resume
             </button>
-            | and
+            &amp;and&amp;
             <button
               class="button"
-              @click="onClickConsole"
+              @click="onClickNext"
             >
               Portfolio
             </button>
@@ -65,24 +65,15 @@ export default {
         this.isTypingComplete = true
       }
     })
-
-    window.addEventListener('keydown', this.onKeydownConsole, false)
   },
 
   beforeDestroyed() {
     this.isTypingComplete = false
     this.showTyping = false
-    window.removeEventListener('keydown', this.onKeydownConsole, false)
   },
 
   methods: {
-    onKeydownConsole() {
-      this.goToNextpage()
-    },
-    onClickConsole() {
-      this.goToNextpage()
-    },
-    goToNextpage() {
+    onClickNext() {
       if (this.isTypingComplete) {
         this.$router.push('/slideshow')
       }
@@ -115,5 +106,6 @@ export default {
 .button {
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  background: transparent;
 }
 </style>
