@@ -10,7 +10,7 @@
         <div id="typed-strings">
           <p>
             Hi there,<br>
-            My name is <b>Amélie Bonet.</b>.^1000 <br>
+            My name is <b>Amélie Bonet</b>.^1000 <br>
             Originally from Paris, I am a type designer and font engineer based in Berlin. <br>
             <br>
             I am a graduate of the École Estienne (MA typography &amp; typeface design), the École des Arts Décoratifs (graphic design) and the University of Reading (MA typeface design).<br>
