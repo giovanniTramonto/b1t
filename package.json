@@ -14,19 +14,19 @@
   },
   "dependencies": {
     "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.14.6"
   },
   "devDependencies": {
-    "acorn": "^6.0.4",
+    "acorn": "^6.4.2",
     "animated-scroll-to": "^1.2.2",
     "babel-eslint": "^8.2.1",
-    "eslint": "^3.19.0",
+    "eslint": "^6.8.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-prettier": "2.6.2",
-    "eslint-plugin-vue": "^4.7.1",
+    "eslint-plugin-vue": "^6.2.2",
     "include-media": "^1.4.9",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.14.1",
     "nodemon": "^1.11.0",
     "picturefill": "^3.0.3",
     "prettier": "1.14.3",

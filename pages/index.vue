@@ -9,17 +9,21 @@
       <div class="console__message">
         <div id="typed-strings">
           <p>
-            Hi, my name is <b>Amélie Bonet</b>.^1000 <br>
-            I am a type designer and font engineer based in Berlin.<br>
-            I have studied type design in Paris (my hometown) and in Reading (UK).<br>
-            I have been drawing and mastering letters in LA (LuxTypo), London (Dalton Maag) and Berlin (Monotype).<br>
+            Hi there,<br>
+            My name is <b>Amélie Bonet.</b>.^1000 <br>
+            Originally from Paris, I am a type designer and font engineer based in Berlin. <br>
+            <br>
+            I am a graduate of the École Estienne (MA typography &amp; typeface design), the École des Arts Décoratifs (graphic design) and the University of Reading (MA typeface design).<br>
+            <br>
+            I drawn letters and produced fonts for companies such as LuxTypo (Los Angeles), Dalton Maag (London) and Monotype (Berlin).<br>
+            <br>
             I am now free^1000lancing.<br>
-            I have been heading the design and production of the new Noto Sans Oriya (variable font family) for Google Fonts last.<br>
+            I have recently been heading the design and production of the new Noto Sans Oriya for Google fonts.<br>
+            <br>
             I am working with Glyphs.<br>
             <br>
-            I would be happy to assist you guys at Source Type.<br>
-            <br>
-            To find out more, press any key
+            I would be happy to join your team at Brand New Type.<br>
+            Click here to download my resume or press any key to see more of my work.
           </p>
         </div>
         <span id="typed" />
