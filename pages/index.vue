@@ -3,6 +3,7 @@
     v-show="showTyping"
     role="main"
     class="console"
+    @click="onClickConsole"
   >
     <div class="console__wrapper">
       <div class="console__message">
@@ -23,16 +24,7 @@
             <br>
             I would be happy to join your team at Brand New Type.<br>
             <br>
-            <button class="button">
-              Resume
-            </button>
-            &nbsp;and&nbsp;
-            <button
-              class="button"
-              @click="onClickNext"
-            >
-              Portfolio
-            </button>
+            To find out more, press any key
           </p>
         </div>
         <span id="typed" />
@@ -49,6 +41,7 @@ export default {
 
   data() {
     return {
+      isTypingComplete: false,
       showTyping: false
     }
   },
@@ -56,20 +49,33 @@ export default {
   mounted() {
     new Typed('#typed', {
       stringsElement: '#typed-strings',
-      typeSpeed: 30,
+      typeSpeed: 10,
       onBegin: () => {
         this.showTyping = true
+      },
+      onComplete: () => {
+        this.isTypingComplete = true
       }
     })
   },
 
   beforeDestroyed() {
+    this.isTypingComplete = false
     this.showTyping = false
+    window.removeEventListener('keydown', this.onKeydownConsole, false)
   },
 
   methods: {
-    onClickNext() {
-      this.$router.push('/slideshow')
+    onKeydownConsole() {
+      this.goToNextpage()
+    },
+    onClickConsole() {
+      this.goToNextpage()
+    },
+    goToNextpage() {
+      if (this.isTypingComplete) {
+        this.$router.push('/slideshow')
+      }
     }
   }
 }
