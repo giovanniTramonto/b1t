@@ -1,25 +1,29 @@
 <template>
   <div
-    class="menu">
+    class="menu"
+  >
     <ul>
       <li class="menu__info">
         <a
           href="#info"
-          @click.prevent="scrollTo">
+          @click.prevent="scrollTo"
+        >
           Info
         </a>
       </li>
       <li class="menu__references">
         <a
           href="#references"
-          @click.prevent="scrollTo">
+          @click.prevent="scrollTo"
+        >
           References
         </a>
       </li>
       <li class="menu__talks">
         <a
           href="#talks"
-          @click.prevent="scrollTo">
+          @click.prevent="scrollTo"
+        >
           Talks
         </a>
       </li>

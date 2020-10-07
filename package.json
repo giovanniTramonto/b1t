@@ -20,7 +20,7 @@
     "acorn": "^6.4.2",
     "animated-scroll-to": "^1.2.2",
     "babel-eslint": "^8.2.1",
-    "eslint": "^6.8.0",
+    "eslint": "^5.16.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-prettier": "2.6.2",

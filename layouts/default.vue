@@ -2,7 +2,8 @@
   <div class="l-app">
     <nav
       class="navigation"
-      role="navigation">
+      role="navigation"
+    >
       <page-header />
       <page-menu />
     </nav>

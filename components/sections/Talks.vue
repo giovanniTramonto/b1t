@@ -1,9 +1,12 @@
 <template>
   <section
     id="talks"
-    class="l-section">
+    class="l-section"
+  >
     <div class="l-block">
-      <h2 class="h2">Talks</h2>
+      <h2 class="h2">
+        Talks
+      </h2>
       <ul class="l-list">
         <li>
           <em>Extension, expansion, Variation</em><br>

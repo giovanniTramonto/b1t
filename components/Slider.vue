@@ -12,15 +12,17 @@
         <div
           v-for="(slide, index) in sortedSlides"
           ref="slides"
+          :key="index"
           :class="$style.slide"
           :data-index="index"
-          :key="index">
+        >
           <picture :class="$style.picture">
             <template v-if="slide.large">
               <source
                 v-if="slide.large"
                 :srcset="`${path}${slide.large}`"
-                media="(min-width: 768px)">
+                media="(min-width: 768px)"
+              >
               <img :srcset="`${path}${slide.default}`">
             </template>
             <template v-else>
@@ -32,14 +34,16 @@
     </div>
     <ul
       v-if="iterations"
-      :class="$style.iterator">
+      :class="$style.iterator"
+    >
       <li
         v-for="(slide, index) in slides"
         :key="index"
         :class="[
           $style.iterateItem,
           { [$style.iterateItemSelected]: index === Math.abs(position) }]"
-        @click="scrollSlideIntoView(index)" />
+        @click="scrollSlideIntoView(index)"
+      />
     </ul>
   </div>
 </template>

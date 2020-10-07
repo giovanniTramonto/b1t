@@ -3,7 +3,8 @@
     <a
       href="/"
       class="header__title h1 h1--top"
-      @click.prevent="scrollTo">
+      @click.prevent="scrollTo"
+    >
       amélie bonet
     </a>
     <p>

@@ -1,7 +1,8 @@
 <template>
   <main
     class="l-main l-wrapper"
-    role="main">
+    role="main"
+  >
     <home />
     <info />
     <references />

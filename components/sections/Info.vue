@@ -1,9 +1,12 @@
 <template>
   <section
     id="info"
-    class="l-section">
+    class="l-section"
+  >
     <div class="l-block">
-      <h2 class="h2">Info</h2>
+      <h2 class="h2">
+        Info
+      </h2>
       <p>I am an independent Typeface Designer and Font Engineer. I also do practice letters the analog way.</p>
       <p>I work on type projects, commissioned or self-initiated.</p>
       <p>I am specialised in extending Latin typefaces and logos to different writing systems, such as Greek, Cyrillic, Devanagari, Bengali, Georgian or Tamil.</p>
