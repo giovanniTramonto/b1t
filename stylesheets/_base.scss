@@ -22,6 +22,8 @@ body {
 }
 
 html.t-portfolio {
+  --nav-height: 50px;
+
   &,
   & body {
     background: black;

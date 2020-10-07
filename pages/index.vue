@@ -74,7 +74,7 @@ export default {
     },
     goToNextpage() {
       if (this.isTypingComplete) {
-        this.$router.push('/slideshow')
+        this.$router.push('/resume')
       }
     }
   }

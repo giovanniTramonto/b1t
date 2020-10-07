@@ -3,6 +3,7 @@
     role="main"
     class="slideshow"
   >
+    <navigation />
     <slider
       :slides="portfolioSlides"
       class="slideshow__slider"
@@ -14,10 +15,11 @@
 <script>
 import Typed from 'typed.js'
 import Slider from '@/components/Slider'
+import Navigation from '@/components/Navigation'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { Slider },
+  components: { Slider, Navigation },
   layout: 'portfolio',
 
   computed: {
@@ -29,9 +31,10 @@ export default {
 <style lang="scss">
 .slideshow {
   height: 100%;
+  padding-top: var(--nav-height);
 
   &__slider {
-    height: 100%;
+    height: calc(100% - var(--nav-height));
     width: 100vw;
 
     & > div {
