@@ -26,7 +26,7 @@
             <button class="button">
               Resume
             </button>
-            &amp;and&amp;
+            &nbsp;and&nbsp;
             <button
               class="button"
               @click="onClickNext"
@@ -49,7 +49,6 @@ export default {
 
   data() {
     return {
-      isTypingComplete: false,
       showTyping: false
     }
   },
@@ -60,23 +59,17 @@ export default {
       typeSpeed: 30,
       onBegin: () => {
         this.showTyping = true
-      },
-      onComplete: () => {
-        this.isTypingComplete = true
       }
     })
   },
 
   beforeDestroyed() {
-    this.isTypingComplete = false
     this.showTyping = false
   },
 
   methods: {
     onClickNext() {
-      if (this.isTypingComplete) {
-        this.$router.push('/slideshow')
-      }
+      this.$router.push('/slideshow')
     }
   }
 }
@@ -104,8 +97,14 @@ export default {
 }
 
 .button {
+  all: unset;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  background: transparent;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+    color: gray;
+  }
 }
 </style>
