@@ -19,7 +19,8 @@
   top: 0;
   left: 0;
   right: 0;
-  background: var(--color-bg);
+  background: var(--color-text);
+  color: var(--color-bg);
 
   ul {
     height: var(--nav-height);
@@ -47,8 +48,7 @@
       &.nuxt-link-active,
       &:hover,
       &:active {
-        background: var(--color-text);
-        color: var(--color-bg);
+        color: white;
       }
     }
   }

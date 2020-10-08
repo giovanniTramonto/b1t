@@ -182,6 +182,8 @@ export default {
 
 <style lang="scss">
 .resume {
+  background: var(--color-bg);
+
   &__contents {
     margin-top: var(--nav-height);
   }

@@ -43,8 +43,10 @@ html.t-portfolio {
   }
 
   &--resume {
-    --color-bg: #fefefe;
+    --color-bg: rgb(228, 94, 10);
     --color-text: #111111;
+
+    background: var(--color-text);
   }
 }
 
