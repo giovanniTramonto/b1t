@@ -49,7 +49,7 @@ export default {
   mounted() {
     new Typed('#typed', {
       stringsElement: '#typed-strings',
-      typeSpeed: 10,
+      typeSpeed: 30,
       onBegin: () => {
         this.showTyping = true
       },

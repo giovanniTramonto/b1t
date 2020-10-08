@@ -3,10 +3,10 @@
     <ul>
       <li>
         <a
-          href="/"
+          href="/pdf/PORTFOLIO_AmBONET.pdf"
           download
         >
-          <span>Download PDF Portfolio</span>
+          <span>Download PDF Portfolio (11MB)</span>
         </a>
       </li>
     </ul>

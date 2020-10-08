@@ -11,19 +11,19 @@
           <li>
             <h3><strong>Type designer & Font Engineer</strong> (2005–now)</h3>
             <p>
-              Some customers to date are: Lux&nbsp;Typographics, Fontself, Sarah&nbsp;Boris, Intégral&nbsp;Ruedi&nbsp;Baur et associés, Indian&nbsp;Type&nbsp;Foundry, Black&nbsp;Foundry, URW++ and Google&nbsp;Fonts.
+              Some customers to date are: Lux&nbsp;Typographics, Fontself, Sarah&nbsp;Boris, Intégral&nbsp;Ruedi&nbsp;Baur&nbsp;et&nbsp;associés, Indian&nbsp;Type&nbsp;Foundry, Black&nbsp;Foundry, URW++ and Google&nbsp;Fonts.
             </p>
           </li>
           <li>
             <h3><strong>Font Engineer at Monotype</strong>, Berlin (2015–2018)</h3>
             <p>
-              Font engineer and type designer for internal and external projetcs. Specifically involved in the creation and production of Indic projects, such as Neue Frutiger Tamil (with Pria Ravichanadran) and Swiss 721 Devanagari.
+              Font engineer and type designer for internal and external projetcs. Specifically involved in the creation and production of Indic projects, such as Neue Frutiger Tamil (with Pria&nbsp;Ravichandran) and Swiss&nbsp;721 Devanagari.
             </p>
           </li>
           <li>
             <h3><strong>Senior Type Designer at Dalton Maag Ltd</strong>, Londres (2010–15)</h3>
             <p>
-              Responsible of major projects such as Ubuntu Monospace & Condensed, Ubuntu Arabic, Nokia Pure Devanagari & Bengali, HP Simplified Devanagari and Intel Clear Devanagari.
+              Responsible of major projects such as Ubuntu Monospace &amp; Condensed, Ubuntu&nbsp;Arabic, Nokia&nbsp;Pure Devanagari &amp; Bengali, HP&nbsp;Simplified&nbsp;Devanagari and Intel&nbsp;Clear&nbsp;Devanagari.
             </p>
           </li>
           <li>
@@ -64,7 +64,7 @@
             <p>
               Glyphs, FontLab, MergeFonts, MetricMachine.<br>
               VOLT, FontValidator, TTX, OTM.<br>
-              Creative Suite Adobe
+              Creative Suite Adobe.
             </p>
           </li>
         </ul>
