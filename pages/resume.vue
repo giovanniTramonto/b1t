@@ -6,6 +6,17 @@
     <navigation />
     <div class="resume__contents">
       <section class="resume-section">
+        <ul class="resume-section__list">
+          <li>
+            <p>
+              <strong>Amélie Bonet</strong><br>
+              <a href="mailto:hello@ameliebonet.com">hello@ameliebonet.com</a><br>
+              00491796135725‬
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="resume-section">
         <header>Experience</header>
         <ul class="resume-section__list">
           <li>
