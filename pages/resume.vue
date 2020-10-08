@@ -6,29 +6,12 @@
     <navigation />
     <div class="resume__contents">
       <section class="resume-section">
-        <header>&nbsp;</header>
-        <ul class="resume-section__list">
-          <li>
-            <p class="indent">
-              Kadiner Straße 12<br>
-              10243 Berlin – Germany<br>
-              0049 179 613 5725
-            </p>
-            <h3><strong>Amélie Bonet</strong></h3>
-            <p>
-              <a href="mailto:hello@ameliebonet.com">hello@ameliebonet.com</a><br>
-              @ameacute (instagram)
-            </p>
-          </li>
-        </ul>
-      </section>
-      <section class="resume-section">
         <header>Experience</header>
         <ul class="resume-section__list">
           <li>
             <h3><strong>Type designer & Font Engineer</strong> (2005–now)</h3>
             <p>
-              Some customers to date are: Margaret Gray, Lux Typographics, Fontself, Sarah Boris, Intégral Ruedi Baur et associés, Indian Type Foundry, Black Foundry, URW and Google Fonts.
+              Some customers to date are: Lux&nbsp;Typographics, Fontself, Sarah&nbsp;Boris, Intégral&nbsp;Ruedi&nbsp;Baur et associés, Indian&nbsp;Type&nbsp;Foundry, Black&nbsp;Foundry, URW++ and Google&nbsp;Fonts.
             </p>
           </li>
           <li>
@@ -75,7 +58,7 @@
         </ul>
       </section>
       <section class="resume-section">
-        <header>SOFTWARES</header>
+        <header>Softwares</header>
         <ul class="resume-section__list">
           <li>
             <p>
@@ -87,7 +70,7 @@
         </ul>
       </section>
       <section class="resume-section">
-        <header>SYSTEMS</header>
+        <header>Systems</header>
         <ul class="resume-section__list">
           <li>
             <p>
@@ -99,7 +82,7 @@
         </ul>
       </section>
       <section class="resume-section">
-        <header>LANGUAGES</header>
+        <header>Languages</header>
         <ul class="resume-section__list">
           <li>
             <p>
@@ -107,6 +90,60 @@
               <strong>French</strong> mother tongue<br>
               <strong>German</strong> upper level<br>
               <strong>Spanish</strong> basic level
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="resume-section">
+        <header>Jury</header>
+        <ul class="resume-section__list">
+          <li>
+            <p>
+              <strong>Post Diplôme at ANRT</strong>, Nancy, France (2019)<br>
+              <strong>Post Diplôme Typographie et Langage at ÉSAD</strong>, Amiens, France (2019) <strong>with Kai Bernau</strong><br>
+              <strong>DSAA Création Typographique at École Estienne</strong>, Paris (2018 &amp; 2019)<br>
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="resume-section">
+        <header>Lectures</header>
+        <ul class="resume-section__list">
+          <li>
+            <p>
+              <strong>TypeWknd</strong>, online, World (2020) <strong>with Sol Matas</strong><br>
+              <strong>École de Communication Visuelle</strong>, Paris (2019)<br>
+              <strong>Kerning Conference</strong>, Faenza, Italy (2018)<br>
+              <strong>Printemps de la Typograhie</strong>, Paris (2018)<br>
+              <strong>TypoLABS</strong>, Berlin (2017 &amp; 2016)<br>
+              <strong>Typo Renoir</strong>, Hong Kong (2012)<br>
+              <strong>ATypI Hong Kong</strong>, China (2012) <strong>with Bruno Maag</strong><br>
+              <strong>Symbiosis School of Design</strong>, Pune, India (2012)<br>
+              <strong>National Institute of Design</strong>, Ahmenabad, India (2011 &amp; 2012)<br>
+              <strong>Lettres Type</strong>, Nancy, France (2011)<br>
+              <strong>ICTVC</strong>, Nicosia, Cyprus (2010) <strong>with Irene Vlachou</strong><br>
+              <strong>École de Communication Visuelle</strong>, Paris (2006)
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="resume-section">
+        <header>Awards</header>
+        <ul class="resume-section__list">
+          <li>
+            <p>
+              <strong>Third price—Granshan</strong>, Yerevan, Armenia (2014) Nokia Pure Bengali<br>
+              <strong>Design of the Year—Design Museum</strong>, Londres (2012) Nokia Pure <strong>with Dalton Maag</strong><br>
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="resume-section">
+        <header>Extra</header>
+        <ul class="resume-section__list">
+          <li>
+            <p>
+              <strong>Vox Pop Videos on Comic Sans</strong>, Berlin (2013)
             </p>
           </li>
         </ul>
@@ -120,7 +157,15 @@ import Navigation from '@/components/Navigation'
 
 export default {
   components: { Navigation },
-  layout: 'portfolio'
+  layout: 'portfolio',
+
+  head() {
+    return {
+      htmlAttrs: {
+        class: ['t-portfolio', 't-portfolio--resume']
+      }
+    }
+  }
 }
 </script>
 
@@ -136,12 +181,7 @@ export default {
   max-width: 800px;
   padding: 30px 20px;
 
-  @include media('>tablet') {
-    display: flex;
-  }
-
   header {
-    flex: 1;
     margin: 0 10px 20px 0;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -161,8 +201,6 @@ export default {
   }
 
   &__list {
-    flex: 3;
-
     li + li {
       margin-top: 20px;
     }

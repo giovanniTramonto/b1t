@@ -23,11 +23,13 @@ body {
 
 html.t-portfolio {
   --nav-height: 50px;
+  --color-bg: black;
+  --color-text: white;
 
   &,
   & body {
-    background: black;
-    color: white;
+    background: var(--color-bg);
+    color: var(--color-text);
     // Prevent history navigation (swiping left/right) on slideshows on
     // Chrome & Firefox:
     overscroll-behavior-x: none;
@@ -38,6 +40,11 @@ html.t-portfolio {
   & #__nuxt,
   & #__layout {
     height: 100%;
+  }
+
+  &--resume {
+    --color-bg: #fefefe;
+    --color-text: #111111;
   }
 }
 

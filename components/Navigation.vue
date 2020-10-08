@@ -2,14 +2,12 @@
   <nav class="navigation">
     <ul>
       <li>
-        <nuxt-link to="/resume">
-          <span>Resume</span>
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link to="/slideshow">
-          <span>Portfolio</span>
-        </nuxt-link>
+        <a
+          href="/"
+          download
+        >
+          <span>Download PDF Portfolio</span>
+        </a>
       </li>
     </ul>
   </nav>
@@ -21,7 +19,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: black;
+  background: var(--color-bg);
 
   ul {
     height: var(--nav-height);
@@ -32,7 +30,7 @@
     height: 100%;
     flex: 1;
     display: flex;
-    border: 1px solid white;
+    border: 1px solid var(--color-text);
 
     & + li {
       border-left: none;
@@ -46,20 +44,11 @@
       align-items: center;
       justify-content: center;
 
-      span {
-        border-bottom: 1px solid transparent;
-      }
-
+      &.nuxt-link-active,
       &:hover,
       &:active {
-        background: white;
-        color: black;
-      }
-
-      &.nuxt-link-active {
-        span {
-          border-bottom-color: inherit;
-        }
+        background: var(--color-text);
+        color: var(--color-bg);
       }
     }
   }

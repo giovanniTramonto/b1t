@@ -57,6 +57,7 @@ export default {
         this.isTypingComplete = true
       }
     })
+    window.addEventListener('keydown', this.onKeydownConsole, false)
   },
 
   beforeDestroyed() {
