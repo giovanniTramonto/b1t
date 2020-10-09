@@ -22,7 +22,7 @@
           <li>
             <h3><strong>Type designer & Font Engineer</strong> (2005–now)</h3>
             <p>
-              Some customers to date are: Lux&nbsp;Typographics, Fontself, Sarah&nbsp;Boris, Intégral&nbsp;Ruedi&nbsp;Baur&nbsp;et&nbsp;associés, Indian&nbsp;Type&nbsp;Foundry, Black&nbsp;Foundry, URW++ and Google&nbsp;Fonts.
+              Some customers to date are: Lux&nbsp;Typographics, Fontself, Sarah&nbsp;Boris, Intégral&nbsp;Ruedi&nbsp;Baur&nbsp;et&nbsp;associés, Indian&nbsp;Type&nbsp;Foundry, Black&nbsp;Foundry, Lineto, URW++ and Google&nbsp;Fonts.
             </p>
           </li>
           <li>
@@ -55,7 +55,7 @@
         <header>Studies</header>
         <ul class="resume-section__list">
           <li>
-            <h3><strong>MA Typeface Designat University of Reading</strong>, Reading (2008–09)</h3>
+            <h3><strong>MA Typeface Design at University of Reading</strong>, Reading (2008–09)</h3>
             <p>
               with merit
             </p>
